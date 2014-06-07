@@ -1,0 +1,90 @@
+﻿@model ProstateBioBank.Domain.Patient
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Patient</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tnm, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tnm)
+                @Html.ValidationMessageFor(model => model.Tnm)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ptnm, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ptnm)
+                @Html.ValidationMessageFor(model => model.Ptnm)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Psa, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Psa)
+                @Html.ValidationMessageFor(model => model.Psa)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GleasonScore, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GleasonScore)
+                @Html.ValidationMessageFor(model => model.GleasonScore)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DAmicoScore, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DAmicoScore)
+                @Html.ValidationMessageFor(model => model.DAmicoScore)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.YearOfBirth, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.YearOfBirth)
+                @Html.ValidationMessageFor(model => model.YearOfBirth)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateOfSurgery, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateOfSurgery)
+                @Html.ValidationMessageFor(model => model.DateOfSurgery)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
