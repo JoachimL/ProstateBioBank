@@ -1,0 +1,139 @@
+﻿@model ProstateBioBank.Models.PatientDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1>@Model.PatientId</h1>
+<div class="row">
+    <div class="col-md-8">
+        <h2>Biopsies</h2>
+        <hr />
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                @foreach (var biopsy in Model.Biopsies)
+            {
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + biopsy.Id)">
+                        @biopsy.Id
+                    </a>
+                </h3>
+            </div>
+            <div id="@("collapse" + biopsy.Id)" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    @foreach (var productType in biopsy.Alequots.SelectMany(a => a.Products).Select(p => p.ProductType))
+                        {
+                    <h4>@productType.Name</h4>
+                    <table>
+                        <tr>
+                            <th>Alequot</th>
+                            <th>Created</th>
+                            <th>Location</th>
+                        </tr>
+                        @foreach (var product in biopsy.Alequots.SelectMany(a => a.Products.Where(p => p.ProductType == productType)))
+                                {
+                        <tr>
+                            <td>@product.Alequot.Id</td>
+                            <td>@product.Created</td>
+                            <td>@product.Location</td>
+                        </tr>
+                                }
+                    </table>
+                        }
+                </div>
+            </div>
+            }
+                @*
+                    {
+                        <div class="panel-heading">
+                            <h4 class="panel-title">@productType.Name</h4>
+                            <table>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Created</th>
+                                    <th>Location</th>
+                                </tr>
+                                @foreach (var product in Model.Products.Where(p => p.ProductType.Id == productType.Id))
+                                {
+                                    <tr>
+                                        <th>product.</th>
+                                        <th>Created</th>
+                                        <th>Location</th>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    }*@
+
+            </div>
+        </div>
+        @*
+
+            </dl>*@
+    </div>
+    <div class="col-md-4">
+        <h2>Patient Data</h2>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Tnm)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tnm)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Ptnm)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Ptnm)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Psa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Psa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GleasonScore)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GleasonScore)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DAmicoScore)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DAmicoScore)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YearOfBirth)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YearOfBirth)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateOfSurgery)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateOfSurgery)
+            </dd>
+        </dl>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PatientId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
