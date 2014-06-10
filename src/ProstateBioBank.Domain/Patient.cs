@@ -1,12 +1,10 @@
 ﻿using ProstateBioBank.Core;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace ProstateBioBank.Domain
 {
-    public class Patient
+    public class Patient : Entity
     {
         public virtual string Id { get; set; }
         public virtual string Tnm { get; set; }

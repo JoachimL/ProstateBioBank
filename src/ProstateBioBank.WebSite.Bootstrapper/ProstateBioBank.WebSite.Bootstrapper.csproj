@@ -30,13 +30,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\packages\structuremap.3.0.3.116\lib\net40\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap.Net4">
       <HintPath>..\packages\structuremap.3.0.3.116\lib\net40\StructureMap.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap.Web">
+      <HintPath>..\packages\structuremap.web.3.0.0.108\lib\net40\StructureMap.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,9 +60,18 @@
     <Compile Include="ProstateBioBankStructureMapRegistry.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProstateBioBank.Data.Repsitories\ProstateBioBank.Data.Repositories.csproj">
+      <Project>{675c9f24-13d6-4600-aeb8-80b6698cd925}</Project>
+      <Name>ProstateBioBank.Data.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProstateBioBank.EntityFramework\ProstateBioBank.EntityFramework.csproj">
+      <Project>{1701052c-6f9e-4413-9579-686e1ffa8b50}</Project>
+      <Name>ProstateBioBank.EntityFramework</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProstateBioBank.Services\ProstateBioBank.Services.csproj">
       <Project>{e73177ce-6e38-4da5-b7f8-ddc4685ab488}</Project>
       <Name>ProstateBioBank.Services</Name>

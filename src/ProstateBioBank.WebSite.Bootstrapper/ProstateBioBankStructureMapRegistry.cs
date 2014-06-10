@@ -1,10 +1,8 @@
-﻿using ProstateBioBank.Services;
+﻿using ProstateBioBank.Data.Repositories;
+using ProstateBioBank.EntityFramework;
+using ProstateBioBank.Services;
 using StructureMap.Configuration.DSL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using StructureMap.Web;
 
 namespace ProstateBioBank.WebSite.Bootstrapper
 {
@@ -13,6 +11,8 @@ namespace ProstateBioBank.WebSite.Bootstrapper
         public ProstateBioBankStructureMapRegistry()
         {
             For<IPatientStore>().Singleton().Use<PatientStore>();
+            For<IPatientRepository>().Singleton().Use<EntityFrameworkPatientRepository>();
+            For<ProstateBioBankContext>().HybridHttpOrThreadLocalScoped();
         }
     }
 }

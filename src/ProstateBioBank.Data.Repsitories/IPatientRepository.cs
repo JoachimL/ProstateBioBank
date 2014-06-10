@@ -1,14 +1,12 @@
-﻿using ProstateBioBank.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using ProstateBioBank.Domain;
 
-namespace ProstateBioBank.Data.Repsitories
+namespace ProstateBioBank.Data.Repositories
 {
     public interface IPatientRepository
     {
         IQueryable<Patient> GetPatients();
+        Task AddPatientAsync(Patient patient);
     }
 }

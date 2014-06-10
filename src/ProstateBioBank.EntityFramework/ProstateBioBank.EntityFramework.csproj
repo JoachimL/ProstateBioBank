@@ -46,10 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFrameworkPatientRepository.cs" />
+    <Compile Include="EntityFrameworkRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProstateBioBankContext.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProstateBioBank.Core\ProstateBioBank.Core.csproj">
+      <Project>{2290bf04-cc76-48f8-b51e-435b9d5f9fe8}</Project>
+      <Name>ProstateBioBank.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProstateBioBank.Data.Repsitories\ProstateBioBank.Data.Repositories.csproj">
+      <Project>{675c9f24-13d6-4600-aeb8-80b6698cd925}</Project>
+      <Name>ProstateBioBank.Data.Repositories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProstateBioBank.Domain\ProstateBioBank.Domain.csproj">
       <Project>{75f82c82-0965-4226-b546-341184e2e728}</Project>
       <Name>ProstateBioBank.Domain</Name>

@@ -7,8 +7,8 @@
     <ProjectGuid>{675C9F24-13D6-4600-AEB8-80B6698CD925}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProstateBioBank.Data.Repsitories</RootNamespace>
-    <AssemblyName>ProstateBioBank.Data.Repsitories</AssemblyName>
+    <RootNamespace>ProstateBioBank.Data.Repositories</RootNamespace>
+    <AssemblyName>ProstateBioBank.Data.Repositories</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

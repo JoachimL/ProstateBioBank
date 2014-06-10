@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ProstateBioBank.Domain
 {
-    public class ProductType
+    public class ProductType : Entity
     {
         public virtual long Id { get; set; }
 

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
 
 public class ProstateBioBankContext : DbContext
 {
     static ProstateBioBankContext()
     {
-        Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ProstateBioBankContext>());
+        //Database.SetInitializer(new DropCreateDatabaseAlways<ProstateBioBankContext>());
     }
 
     // You can add custom code to this file. Changes will not be overwritten.
@@ -23,14 +19,14 @@ public class ProstateBioBankContext : DbContext
     {
     }
 
-    public System.Data.Entity.DbSet<ProstateBioBank.Domain.ProductType> ProductTypes { get; set; }
+    public virtual DbSet<ProstateBioBank.Domain.ProductType> ProductTypes { get; set; }
 
-    public System.Data.Entity.DbSet<ProstateBioBank.Domain.Patient> Patients { get; set; }
+    public virtual DbSet<ProstateBioBank.Domain.Patient> Patients { get; set; }
 
-    public System.Data.Entity.DbSet<ProstateBioBank.Domain.Biopsy> Biopsies { get; set; }
+    //public virtual DbSet<ProstateBioBank.Domain.Biopsy> Biopsies { get; set; }
 
-    public System.Data.Entity.DbSet<ProstateBioBank.Domain.Alequot> Alequots { get; set; }
+    //public virtual DbSet<ProstateBioBank.Domain.Alequot> Alequots { get; set; }
 
-    public System.Data.Entity.DbSet<ProstateBioBank.Domain.Product> Products { get; set; }
+    //public virtual DbSet<ProstateBioBank.Domain.Product> Products { get; set; }
 
 }

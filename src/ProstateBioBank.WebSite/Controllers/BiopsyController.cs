@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using ProstateBioBank.Models;
 using ProstateBioBank.Services;
@@ -47,16 +43,16 @@ namespace ProstateBioBank.Controllers
         }
 
         // GET: /Biopsy/Create
-        public async Task<ActionResult> Create()
+        public ActionResult Create()
         {
             var model = new BiopsyCreateModel();
-            await SetPatientsOnModel(model);
+            SetPatientsOnModel(model);
             return View(model);
         }
 
-        private async Task SetPatientsOnModel(BiopsyCreateModel model)
+        private void SetPatientsOnModel(BiopsyCreateModel model)
         {
-            model.Patients = (await _patientStore.GetPatientsAsync()).Select(p => new SelectListItem() { Text = p.Id, Value = p.Id });
+            model.Patients = (_patientStore.GetPatients()).Select(p => new SelectListItem() { Text = p.Id, Value = p.Id });
         }
 
         // POST: /Biopsy/Create
@@ -77,7 +73,7 @@ namespace ProstateBioBank.Controllers
                 return RedirectToAction("Index");
             }
 
-            await SetPatientsOnModel(biopsyModel);
+            SetPatientsOnModel(biopsyModel);
             return View(biopsyModel);
         }
 

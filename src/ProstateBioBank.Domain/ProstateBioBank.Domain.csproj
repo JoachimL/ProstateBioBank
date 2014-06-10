@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Alequot.cs" />
     <Compile Include="Biopsy.cs" />
+    <Compile Include="Entity.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductType.cs" />

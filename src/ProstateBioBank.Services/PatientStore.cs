@@ -1,12 +1,11 @@
-﻿using ProstateBioBank.Data.Repsitories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using ProstateBioBank.Data.Repositories;
 using ProstateBioBank.ObjectExtensions;
 using ProstateBioBank.ServiceModels;
-using System.Data.Entity;
+
 
 namespace ProstateBioBank.Services
 {
@@ -19,15 +18,34 @@ namespace ProstateBioBank.Services
             _patientRepository = this.GetOrThrowArgumentNullException(patientRepository, "patientRepository");
         }
 
-        public async Task<IEnumerable<ServiceModels.Patient>> GetPatientsAsync()
+        public IEnumerable<ServiceModels.Patient> GetPatients()
         {
-            var patients = _patientRepository.GetPatients().Select(p => new Patient());
-            return await patients.ToListAsync();
+            return _patientRepository.GetPatients().Select(p => new Patient()
+            {
+                Id = p.Id,
+                DateOfSurgery = p.DateOfSurgery,
+                DAmicoScore = p.DAmicoScore,
+                GleasonScore = p.GleasonScore,
+                Psa = p.Psa,
+                Tnm = p.Tnm,
+                Ptnm = p.Ptnm,
+                YearOfBirth = p.YearOfBirth
+            });
         }
 
-        public Task AddPatientAsync(ServiceModels.Patient patient)
+        public Task AddPatientAsync(Patient patientModel)
         {
-            throw new NotImplementedException();
+            return _patientRepository.AddPatientAsync(new Domain.Patient()
+            {
+                Id = patientModel.Id,
+                DAmicoScore = patientModel.DAmicoScore,
+                GleasonScore = patientModel.GleasonScore,
+                DateOfSurgery = patientModel.DateOfSurgery,
+                Psa = patientModel.Psa,
+                Tnm = patientModel.Tnm,
+                YearOfBirth = patientModel.YearOfBirth,
+                Ptnm = patientModel.Ptnm
+            });
         }
 
         public Task<ServiceModels.Patient> GetPatientByIdAsync(string id)

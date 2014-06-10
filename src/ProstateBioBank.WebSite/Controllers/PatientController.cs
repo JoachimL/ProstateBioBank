@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
+using ProstateBioBank.Models;
 using ProstateBioBank.ServiceModels;
 using ProstateBioBank.Services;
 using ProstateBioBank.ObjectExtensions;
@@ -24,9 +20,12 @@ namespace ProstateBioBank.Controllers
 
 
         // GET: /Patient/
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            return View(await _patientStore.GetPatientsAsync());
+            return View(new PatientIndexViewModel()
+            {
+                Patients = _patientStore.GetPatients()
+            });
         }
 
         // GET: /Patient/Details/5
@@ -57,7 +56,8 @@ namespace ProstateBioBank.Controllers
         }
 
         // GET: /Patient/Create
-        public ActionResult Create()
+        [ActionName("Create")]
+        public ActionResult CreateAsync()
         {
             return View();
         }
@@ -67,7 +67,8 @@ namespace ProstateBioBank.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Tnm,Ptnm,Psa,GleasonScore,DAmicoScore,YearOfBirth,DateOfSurgery")] Patient patient)
+        [ActionName("Create")]
+        public async Task<ActionResult> CreateAsync([Bind(Include = "Id,Tnm,Ptnm,Psa,GleasonScore,DAmicoScore,YearOfBirth,DateOfSurgery")] Patient patient)
         {
             if (ModelState.IsValid)
             {

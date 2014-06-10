@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace ProstateBioBank.Domain
 {
-    public class Biopsy
+    public class Biopsy : Entity
     {
         public virtual string Id { get; set; }
 

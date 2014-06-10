@@ -1,12 +1,10 @@
 ﻿using ProstateBioBank.Core;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace ProstateBioBank.ServiceModels
 {
-    public class Patient : Entity
+    public class Patient
     {
         public string Id { get; set; }
         public string Tnm { get; set; }

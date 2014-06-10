@@ -31,7 +31,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProstateBioBank.WebSite.Int
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProstateBioBank.WebSite.UnitTests", "ProstateBioBank.WebSite.UnitTests\ProstateBioBank.WebSite.UnitTests.csproj", "{8E79C7A3-C511-475C-94EC-97C827C33C6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProstateBioBank.Data.Repsitories", "ProstateBioBank.Data.Repsitories\ProstateBioBank.Data.Repsitories.csproj", "{675C9F24-13D6-4600-AEB8-80B6698CD925}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProstateBioBank.Data.Repositories", "ProstateBioBank.Data.Repsitories\ProstateBioBank.Data.Repositories.csproj", "{675C9F24-13D6-4600-AEB8-80B6698CD925}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

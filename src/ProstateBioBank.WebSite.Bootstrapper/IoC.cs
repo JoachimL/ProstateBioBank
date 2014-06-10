@@ -17,17 +17,14 @@
 
 
 using StructureMap;
-using StructureMap.Graph;
+
 namespace ProstateBioBank.WebSite.Bootstrapper
 {
     public static class IoC
     {
         public static IContainer Initialize()
         {
-            ObjectFactory.Initialize(x =>
-                        {
-                            x.AddRegistry<ProstateBioBankStructureMapRegistry>();
-                        });
+            ObjectFactory.Initialize(x => x.AddRegistry<ProstateBioBankStructureMapRegistry>());
             return ObjectFactory.Container;
         }
     }

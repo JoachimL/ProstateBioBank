@@ -30,6 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Moq">
       <HintPath>..\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
     </Reference>
@@ -43,6 +50,7 @@
       <HintPath>..\packages\Should.1.1.20\lib\Should.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,20 +59,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MockDbSetBuilder.cs" />
     <Compile Include="PatientStoreTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProstateBioBank.Data.Repsitories\ProstateBioBank.Data.Repsitories.csproj">
+    <ProjectReference Include="..\ProstateBioBank.Core\ProstateBioBank.Core.csproj">
+      <Project>{2290bf04-cc76-48f8-b51e-435b9d5f9fe8}</Project>
+      <Name>ProstateBioBank.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProstateBioBank.Data.Repsitories\ProstateBioBank.Data.Repositories.csproj">
       <Project>{675c9f24-13d6-4600-aeb8-80b6698cd925}</Project>
-      <Name>ProstateBioBank.Data.Repsitories</Name>
+      <Name>ProstateBioBank.Data.Repositories</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProstateBioBank.Domain\ProstateBioBank.Domain.csproj">
       <Project>{75f82c82-0965-4226-b546-341184e2e728}</Project>
       <Name>ProstateBioBank.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProstateBioBank.EntityFramework\ProstateBioBank.EntityFramework.csproj">
+      <Project>{1701052c-6f9e-4413-9579-686e1ffa8b50}</Project>
+      <Name>ProstateBioBank.EntityFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProstateBioBank.ServiceModels\ProstateBioBank.ServiceModels.csproj">
       <Project>{682b67ac-a7ba-42c8-abe0-32f01bb5406f}</Project>
